@@ -13,7 +13,11 @@ import PageData from '/public/json/page-content.json';
 FlowRouter.route('/', {
   action() {
     mount(App, {
-      content: <Home />
+      content: <Home />,
+      routes: [
+      	{id: 0, url: '/page/1', text: 'Page 1'},
+      	{id: 1, url: '/page/2', text: 'Page 2'}
+      ]
     });
   }
 });
