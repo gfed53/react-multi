@@ -16,9 +16,20 @@ export default class Page extends Component {
   	console.log('this.props',this.props);
   }
 
+  renderData(data){
+  	return (
+  		<div>
+	  		<h2>{data.content.title}</h2>
+	  		<p>{data.content.p}</p>
+  		</div>
+  		);
+  }
+
   render() {
     return (
-      <h2>Header Here</h2>
+    	<div>
+      	{this.renderData(this.props.data)}
+      </div>
     );
   }
 }

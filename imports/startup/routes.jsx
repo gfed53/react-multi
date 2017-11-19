@@ -23,7 +23,7 @@ FlowRouter.route('/page/:id', {
     mount(App, {
       content: <Page
         projectId={params.id}
-        data={PageData}
+        data={PageData[params.id]}
       />
     });
   }
