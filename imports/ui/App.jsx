@@ -2,7 +2,7 @@ import React from 'react';
 
 import Nav from './Nav.jsx';
 
-export const App = ({content, routes}) => (
+export const App = ({content}) => (
   <div id="main-container">
   	<header>
   		<Nav routes={[

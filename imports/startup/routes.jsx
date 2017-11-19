@@ -13,11 +13,7 @@ import PageData from '/public/json/page-content.json';
 FlowRouter.route('/', {
   action() {
     mount(App, {
-      content: <Home />,
-      routes: [
-      	{id: 0, url: '/page/1', text: 'Page 1'},
-      	{id: 1, url: '/page/2', text: 'Page 2'}
-      ]
+      content: <Home />
     });
   }
 });
@@ -28,6 +24,16 @@ FlowRouter.route('/page/:id', {
       content: <Page
         projectId={params.id}
         data={PageData[params.id]}
+      />
+    });
+  }
+});
+
+FlowRouter.route('/page/:id/:sub', {
+  action(params) {
+    mount(App, {
+      content: <Page
+        data={PageData[params.id].data.content.sections[params.sub]}
       />
     });
   }

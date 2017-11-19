@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import Nav from './Nav.jsx';
  
 // Task component - represents a single todo item
 export default class Page extends Component {
