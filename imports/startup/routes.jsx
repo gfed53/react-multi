@@ -6,6 +6,12 @@ import { mount } from 'react-mounter';
 import { App } from '../ui/App.jsx';
 import { Home } from '../ui/Home.jsx';
 import Page from '../ui/Page.jsx';
+import Sub from '../ui/Sub.jsx';
+import { SubLayout } from '../ui/SubLayout.jsx';
+
+
+// Helpers
+import FlowHelpers from './router-helpers.js';
 
 // Data
 import PageData from '/public/json/page-content.json';
@@ -29,10 +35,18 @@ FlowRouter.route('/page/:id', {
   }
 });
 
-FlowRouter.route('/page/:id/:sub', {
+FlowRouter.route('/page/:id', {
   action(params) {
-    mount(App, {
-      content: <Page
+    mount(SubLayout, {
+      content: <div>Empty</div>
+    });
+  }
+});
+
+FlowRouter.route('/page/:id/section/:sub', {
+  action(params) {
+    mount(SubLayout, {
+      content: <Sub
         data={PageData[params.id].data.content.sections[params.sub]}
       />
     });
