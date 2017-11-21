@@ -35,21 +35,29 @@ FlowRouter.route('/page/:id', {
   }
 });
 
-FlowRouter.route('/page/:id', {
+FlowRouter.route('/page/:id/:sub', {
   action(params) {
-    mount(SubLayout, {
-      content: <div>Empty</div>
-    });
-  }
-});
-
-FlowRouter.route('/page/:id/section/:sub', {
-  action(params) {
-    mount(SubLayout, {
-      content: <Sub
-        data={PageData[params.id].data.content.sections[params.sub]}
+    mount(App, {
+      content: <Page
+        projectId={params.id}
+        data={PageData[params.id]}
+        platform={PageData[params.id].content.sections[params.sub]}
       />
     });
   }
 });
+
+// FlowRouter.route('/page/:id/:sub', {
+//   action(params) {
+//     mount(SubLayout, {
+//       content: <Sub
+//         data={PageData[params.id].data.content.sections[params.sub]}
+//       />
+//     });
+//   }
+// });
+
+// FlowRouter.notFound = {
+// 	action()
+// }
 

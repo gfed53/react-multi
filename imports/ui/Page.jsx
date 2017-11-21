@@ -16,35 +16,27 @@ export default class Page extends Component {
 		this.detectUrlData();
   }
 
+  componentWillReceiveProps(one, two) {
+  	console.log('one',one);
+  	// console.log('this.props',this.props);
+  }
+
   detectUrlData(){
   	console.log('this.props',this.props);
   }
 
-  renderData(data){
+  renderData(data, platform){
   	return (
   		<div>
 	  		<h2>{data.content.title}</h2>
 	  		<Nav routes={[
-	      	{id: 0, url: `#facebook`, text: 'Facebook'},
-	      	{id: 1, url: `#instagram`, text: 'Instagram'}
+	      	{id: 0, url: `/page/${data.id}/facebook`, text: 'Facebook'},
+	      	{id: 1, url: `/page/${data.id}/instagram`, text: 'Instagram'}
 	      ]}/>
 	  		<p>{data.content.p}</p>
 	  		{/*content*/}
 
-	  		{/*Loop strategy*/}
-	  		{Object.values(data.content.sections).map(section => {
-	  			// Just for testing
-	  			var pStyle = {
-	  				margin: '5em 0'
-	  			};
-
-	  			return (
-	  				<div className="sub-section" id={section.link}>
-		  				<h3>{section.title}</h3>
-		  				<p style={pStyle}>{section.p}</p>
-	  				</div>
-	  				);
-	  		})}
+	  		<Sub section= {platform}/>
 	  		
   		</div>
   		);
@@ -53,7 +45,7 @@ export default class Page extends Component {
   render() {
     return (
     	<div>
-      	{this.renderData(this.props.data)}
+      	{this.renderData(this.props.data, this.props.platform)}
       </div>
     );
   }

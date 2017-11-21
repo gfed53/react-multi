@@ -26,8 +26,9 @@ export default class Sub extends Component {
 
   render() {
     return (
-    	<div>
-      	{this.renderData(this.props.data)}
+      <div className="sub-section" id={this.props.section.link}>
+        <h3>{this.props.section.title}</h3>
+        <p>{this.props.section.p}</p>
       </div>
     );
   }

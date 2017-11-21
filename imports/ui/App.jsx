@@ -6,8 +6,8 @@ export const App = ({content}) => (
   <div id="main-container">
   	<header>
   		<Nav routes={[
-      	{id: 0, url: '/page/1', text: 'Page 1'},
-      	{id: 1, url: '/page/2', text: 'Page 2'}
+      	{id: 0, url: '/page/1/facebook', text: 'Page 1'},
+      	{id: 1, url: '/page/2/facebook', text: 'Page 2'}
       ]}/>
   	</header>
     {content}
