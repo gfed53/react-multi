@@ -1,13 +1,12 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import React from 'react';
-import { mount, withOptions } from 'react-mounter';
+import { mount } from 'react-mounter';
 
 // All Layouts and Pages
 import { App } from '../ui/App.jsx';
 import { Home } from '../ui/Home.jsx';
 import Page from '../ui/Page.jsx';
 import Sub from '../ui/Sub.jsx';
-import { SubLayout } from '../ui/SubLayout.jsx';
 
 
 // Helpers
@@ -17,10 +16,8 @@ import FlowHelpers from './router-helpers.js';
 import PageData from '/public/json/page-content.json';
 import NavData from '/public/json/nav.json';
 
-const mount2 = withOptions({
-	rootProps: NavData
-});
 
+// TODO: Change this to a redirect. Also add a catch-all route
 FlowRouter.route('/', {
   action() {
     mount(App, {
@@ -45,7 +42,6 @@ FlowRouter.route('/page/:id/:sub', {
     mount(App, {
       content: <Page
         projectId={params.id}
-        allData={PageData}
         pageData={PageData[params.id]}
         platform={PageData[params.id].content.sections[params.sub]}
       />,
@@ -53,31 +49,4 @@ FlowRouter.route('/page/:id/:sub', {
     });
   }
 });
-
-// FlowRouter.route('/page/:id/:sub', {
-//   action(params) {
-//     mount2(App, {
-//       content: <Page
-//         projectId={params.id}
-//         allData={PageData}
-//         pageData={PageData[params.id]}
-//         platform={PageData[params.id].content.sections[params.sub]}
-//       />
-//     });
-//   }
-// });
-
-// FlowRouter.route('/page/:id/:sub', {
-//   action(params) {
-//     mount(SubLayout, {
-//       content: <Sub
-//         data={PageData[params.id].data.content.sections[params.sub]}
-//       />
-//     });
-//   }
-// });
-
-// FlowRouter.notFound = {
-// 	action()
-// }
 

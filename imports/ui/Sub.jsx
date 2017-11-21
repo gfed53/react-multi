@@ -16,13 +16,13 @@ export default class Sub extends Component {
   	console.log('this.props',this.props);
   }
 
-  renderData(data){
-  	return (
-  		<div>
-	  		Sub data would go here.
-  		</div>
-  		);
-  }
+  // renderData(data){
+  // 	return (
+  // 		<div>
+	 //  		Sub data would go here.
+  // 		</div>
+  // 		);
+  // }
 
   render() {
     return (

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Nav from './Nav.jsx';
 import Sub from './Sub.jsx';
-import { SubLayout } from './SubLayout.jsx';
  
 // Task component - represents a single todo item
 export default class Page extends Component {
@@ -18,7 +17,6 @@ export default class Page extends Component {
 
   componentWillReceiveProps(nextProps) {
   	console.log('nextProps',nextProps);
-  	// console.log('this.props',this.props);
   }
 
   detectUrlData(){
@@ -29,15 +27,14 @@ export default class Page extends Component {
   	return (
   		<div>
 	  		<h2>{data.content.title}</h2>
+
 	  		<Nav routes={[
 	      	{id: 0, url: `/page/${data.id}/facebook`, text: 'Facebook'},
 	      	{id: 1, url: `/page/${data.id}/instagram`, text: 'Instagram'}
 	      ]}/>
-	  		<p>{data.content.p}</p>
-	  		{/*content*/}
 
-	  		<Sub section= {platform}/>
-	  		
+	  		<p>{data.content.p}</p>
+	  		<Sub section={platform}/>
   		</div>
   		);
   }
@@ -50,16 +47,3 @@ export default class Page extends Component {
     );
   }
 }
-
-
-/*
-
-// Nav component used for nested views strategy
-
-<Nav routes={[
-	{id: 0, url: `/page/${data.id}/section/${data.content.sections.facebook.link}`, text: 'Facebook'},
-	{id: 1, url: `/page/${data.id}/section/${data.content.sections.instagram.link}`, text: 'Instagram'}
-]}/>
-
-
-*/

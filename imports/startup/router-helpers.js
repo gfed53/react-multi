@@ -1,4 +1,6 @@
-//jshint esversion: 6
+// jshint esversion: 6
+
+// Probably not going to need any of this.
 import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
@@ -21,5 +23,3 @@ export const FlowHelpers = {
   urlFor: urlFor,
   currentRoute: currentRoute
 };
-
-// export FlowHelpers;
