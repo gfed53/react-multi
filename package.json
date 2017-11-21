@@ -1,6 +1,5 @@
 {
   "name": "react-multi",
-  "private": true,
   "scripts": {
     "start": "meteor run"
   },

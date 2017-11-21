@@ -16,27 +16,6 @@ import FlowHelpers from './router-helpers.js';
 import PageData from '/public/json/page-content.json';
 import NavData from '/public/json/nav.json';
 
-
-// TODO: Change this to a redirect. Also add a catch-all route
-FlowRouter.route('/', {
-  action() {
-    mount(App, {
-      content: <Home />
-    });
-  }
-});
-
-FlowRouter.route('/page/:id', {
-  action(params) {
-    mount(App, {
-      content: <Page
-        projectId={params.id}
-        data={PageData[params.id]}
-      />
-    });
-  }
-});
-
 FlowRouter.route('/page/:id/:sub', {
   action(params) {
     mount(App, {
@@ -49,4 +28,10 @@ FlowRouter.route('/page/:id/:sub', {
     });
   }
 });
+
+FlowRouter.notFound = {
+	action: function(){
+		FlowRouter.go('/page/1/facebook');
+	}
+}
 
