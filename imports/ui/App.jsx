@@ -1,14 +1,12 @@
 import React from 'react';
 
 import Nav from './Nav.jsx';
+import NavData from '/public/json/nav.json';
 
-export const App = ({content}) => (
+export const App = ({content, props}) => (
   <div id="main-container">
   	<header>
-  		<Nav routes={[
-      	{id: 0, url: '/page/1/facebook', text: 'Page 1'},
-      	{id: 1, url: '/page/2/facebook', text: 'Page 2'}
-      ]}/>
+  		<Nav routes={props}/>
   	</header>
     {content}
   </div>
@@ -23,5 +21,10 @@ export const App = ({content}) => (
 	</ul>	
 </nav>
 
+
+[
+      	{id: 0, url: '/page/1/facebook', text: 'Page 1'},
+      	{id: 1, url: '/page/2/facebook', text: 'Page 2'}
+      ]
 
 */

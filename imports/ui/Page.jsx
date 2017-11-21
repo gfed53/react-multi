@@ -16,8 +16,8 @@ export default class Page extends Component {
 		this.detectUrlData();
   }
 
-  componentWillReceiveProps(one, two) {
-  	console.log('one',one);
+  componentWillReceiveProps(nextProps) {
+  	console.log('nextProps',nextProps);
   	// console.log('this.props',this.props);
   }
 
@@ -45,7 +45,7 @@ export default class Page extends Component {
   render() {
     return (
     	<div>
-      	{this.renderData(this.props.data, this.props.platform)}
+      	{this.renderData(this.props.pageData, this.props.platform)}
       </div>
     );
   }
