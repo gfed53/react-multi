@@ -7,7 +7,9 @@
     "babel-runtime": "^6.26.0",
     "meteor-node-stubs": "^0.3.2",
     "react": "^16.1.1",
+    "react-animate-on-change": "^1.0.1",
     "react-dom": "^16.1.1",
-    "react-mounter": "^1.2.0"
+    "react-mounter": "^1.2.0",
+    "react-transition-group": "^2.2.1"
   }
 }

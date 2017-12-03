@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Transition from 'react-transition-group/Transition';
+import AnimateOnChange from 'react-animate-on-change';
 
 import Nav from './Nav.jsx';
 import Sub from './Sub.jsx';
@@ -41,9 +43,20 @@ export default class Page extends Component {
 
   render() {
     return (
-    	<div>
-      	{this.renderData(this.props.pageData, this.props.platform)}
+      <div>
+        {this.renderData(this.props.pageData, this.props.platform)}
       </div>
     );
   }
 }
+
+/*
+<AnimateOnChange
+      baseClassName="animate-container"
+      animationClassName="animate-container-transition"
+      animate=""
+      >
+        {this.renderData(this.props.pageData, this.props.platform)}
+      </AnimateOnChange>
+
+*/
