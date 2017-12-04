@@ -15,4 +15,8 @@ Some of the main technologies used:
 
 ## For the Future
 
+I may want to experiment with CMS-like functionality, allowing admin users to insert their own content from the view, and have all data saved to MongoDB. 
+
 I'm also experimenting with React transitions since I want to be able to achieve a fade-in-out effect when navigating from route-to-route.
+
+

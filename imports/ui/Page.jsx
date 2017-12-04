@@ -4,6 +4,8 @@ import AnimateOnChange from 'react-animate-on-change';
 
 import Nav from './Nav.jsx';
 import Sub from './Sub.jsx';
+import Text from './components/Text.jsx';
+import MyEditor from './components/MyEditor.jsx';
  
 // Task component - represents a single todo item
 export default class Page extends Component {
@@ -22,7 +24,7 @@ export default class Page extends Component {
   }
 
   detectUrlData(){
-  	console.log('this.props',this.props);
+  	console.log('this.props page',this.props);
   }
 
   renderData(data, platform){
@@ -35,7 +37,8 @@ export default class Page extends Component {
 	      	{id: 1, url: `/page/${data.id}/instagram`, text: 'Instagram'}
 	      ]}/>
 
-	  		<p>{data.content.p}</p>
+        <Text content={data.content.sub_section.p} />
+        <MyEditor />
 	  		<Sub section={platform}/>
   		</div>
   		);

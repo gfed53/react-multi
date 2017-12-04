@@ -13,7 +13,7 @@ export default class Sub extends Component {
   }
 
   detectUrlData(){
-  	console.log('this.props',this.props);
+  	console.log('this.props platform',this.props);
   }
 
   // renderData(data){
@@ -28,7 +28,7 @@ export default class Sub extends Component {
     return (
       <div className="sub-section" id={this.props.section.link}>
         <h3>{this.props.section.title}</h3>
-        <p>{this.props.section.p}</p>
+        <p>{this.props.section.sub_section.p}</p>
       </div>
     );
   }
