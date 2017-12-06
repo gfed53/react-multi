@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "draft-js": "^0.10.4",
+    "draft-js-utils": "^1.2.0",
     "meteor-node-stubs": "^0.3.2",
     "react": "^16.1.1",
     "react-animate-on-change": "^1.0.1",
