@@ -37,7 +37,7 @@ export default class Page extends Component {
 	      	{id: 1, url: `/page/${data.id}/instagram`, text: 'Instagram'}
 	      ]}/>
 
-        <Text content={data.content.sub_section.p} />
+        {/*<Text content={data.content.sub_section.p} />*/}
         <MyEditor />
 	  		<Sub section={platform}/>
   		</div>

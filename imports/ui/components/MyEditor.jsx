@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 
+// testing
+import Text from './Text';
+
 export default class MyEditor extends Component {
 
   constructor(props) {
@@ -37,35 +40,6 @@ export default class MyEditor extends Component {
     console.log('currentContent',this.state.editorState.getCurrentContent());
   }
 
-  _onTestLinkClick() {
-    // console.log('currentContent',this.state.editorState.getCurrentContent());
-    const contentState = this.state.editorState.getCurrentContent();
-
-    const contentStateWithEntity = contentState.createEntity(
-        'LINK',
-        'MUTABLE',
-        {url: 'http://www.gregoryfederico.com'}
-      );
-
-    // console.log()
-
-    // const newEditorState = EditorState.set(editorState, { currentContent: contentStateWithEntity });
-
-    // this.setState({
-    //   editorState: RichUtils.toggleLink(
-    //     newEditorState,
-    //     newEditorState.getSelection(),
-    //     entityKey
-    //   ),
-    //   showURLInput: false,
-    //   urlValue: '',
-    // }, () => {
-    //   setTimeout(() => this.refs.editor.focus(), 0);
-    // });
-
-
-  }
-
 
 
   render() {
@@ -79,6 +53,8 @@ export default class MyEditor extends Component {
           handleKeyCommand={this.handleKeyCommand}
           onChange={this.onChange}
         />
+        <h3>HTML output</h3>
+        <Text data={this.state.editorState} />
       </div>
     );
   }
