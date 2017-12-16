@@ -37,12 +37,20 @@
 			},
 			"sections": {
 				"facebook": {
+					"link": "facebook",
 					"title": "Facebook Results",
-					"p": "Lorem ipsum Facebook page 2"
+					"sub_section": {
+						"type": "text",
+						"p": "Lorem ipsum Facebook page 2"
+					}
 				},
 				"instagram": {
+					"link": "instagram",
 					"title": "Instagram Results",
-					"p": "Lorem ipsum Instagram page 2"
+					"sub_section": {
+						"type": "text",
+						"p": "Lorem ipsum Instagram page 2"
+					}
 				}
 			}
 		}
@@ -57,12 +65,20 @@
 			},
 			"sections": {
 				"facebook": {
+					"link": "facebook",
 					"title": "Facebook Results",
-					"p": "Lorem ipsum Facebook page 3"
+					"sub_section": {
+						"type": "text",
+						"p": "Lorem ipsum Facebook page 3"
+					}
 				},
 				"instagram": {
+					"link": "instagram",
 					"title": "Instagram Results",
-					"p": "Lorem ipsum Instagram page 3"
+					"sub_section": {
+						"type": "text",
+						"p": "Lorem ipsum Instagram page 3"
+					}
 				}
 			}
 		}
