@@ -1,6 +1,8 @@
 import React from 'react';
 import Transition from 'react-transition-group/Transition';
+// import { CSSTransitionGroup } from 'react-transition-group';
 
+import { Fade } from './components/Fade.jsx';
 import Nav from './Nav.jsx';
 
 const duration = 300;

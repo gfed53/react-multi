@@ -20,6 +20,7 @@ FlowRouter.route('/page/:id/:sub', {
   action(params) {
     mount(App, {
       content: <Page
+        key='page'
         projectId={params.id}
         pageData={PageData[params.id]}
         platform={PageData[params.id].content.sections[params.sub]}

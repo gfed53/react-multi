@@ -13,35 +13,74 @@ export default class Page extends Component {
 
 	constructor(props) {
     super(props);
-    this.state = {show: false};
+    this.state = {
+      show: false
+    };
   }
 
   componentDidMount(){
   	// testing
     this.detectUrlData();
     this.setState(({ show }) => ({
-      show: !show
-    }))
+      show: !show,
+      lastProps: this.props
+    }));
+  }
+
+  componentWillUpdate(){
+    console.log('componentWillUpdate');
   }
 
   componentWillReceiveProps(nextProps) {
     console.log('nextProps',nextProps);
-    this.handleToggle();
-    // this.handleToggle();
+    
+    console.log('this.props',this.props);
+    console.log('this.state.lastProps',this.state.lastProps);
+    
+    //hide
+    this.setState(({ show }) => ({
+      show: !show
+    }));
+
+    //switch props
+    setTimeout(()=> {
+      this.setState({
+        lastProps: nextProps
+      });
+    }, 150);
+
+    //reveal
+    setTimeout(()=> {
+      this.setState(({ show }) => ({
+        show: !show
+      }));
+    }, 300);
+    
   }
 
   detectUrlData(){
   	console.log('this.props page',this.props);
   }
 
+  //
   handleToggle() {
+    //hide
     this.setState(({ show }) => ({
       show: !show
     }));
+
+    //switch props
+    setTimeout(()=> {
+      this.setState({
+        lastProps: nextProps
+      });
+    }, 150);
+
+    //reveal
     setTimeout(()=> {
       this.setState(({ show }) => ({
         show: !show
-      }))
+      }));
     }, 300);
   }
 
@@ -64,10 +103,19 @@ export default class Page extends Component {
 
   render() {
     const { show } = this.state;
+    const props = this.state.lastProps || this.props;
     return (
       <div>
-        <Fade in={!!show} />
+        <Fade in={!!show} child={this.renderData(props.pageData, props.platform)}/>
+
+      {/* <AnimateOnChange
+        baseClassName="animate-container"
+        animationClassName="props-change"
+        animate={this.props !== this.state.lastProps}
+      >
         {this.renderData(this.props.pageData, this.props.platform)}
+      </AnimateOnChange> */}
+        
       </div>
     );
   }

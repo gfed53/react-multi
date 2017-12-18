@@ -13,7 +13,7 @@ export default class Sub extends Component {
   }
 
   detectUrlData(){
-  	console.log('this.props platform',this.props);
+  	// console.log('this.props platform',this.props);
   }
 
   // renderData(data){

@@ -9,12 +9,12 @@ export default class Text extends Component {
   }
 
   componentWillReceiveProps(next){
-    console.log('next text data',next);
+    // console.log('next text data',next);
   }
 
   componentDidMount(){
     // testing
-    console.log('this.props text data',this.props);
+    // console.log('this.props text data',this.props);
   }
 
   detectUrlData(){
@@ -38,7 +38,7 @@ export default class Text extends Component {
         defaultBlockTag: 'div',
       };
       const html = stateToHTML(currentContent, options);
-      console.log('typeof',typeof html);
+      // console.log('typeof',typeof html);
       return (
         <div dangerouslySetInnerHTML={{__html: html}}></div>
         )

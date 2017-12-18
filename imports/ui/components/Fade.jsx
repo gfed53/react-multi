@@ -1,14 +1,11 @@
 import React from 'react';
 import { Transition } from 'react-transition-group';
 
-const duration = 300;
+const duration = 200;
 
 const defaultStyle = {
   transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-  padding: 20,
-  display: 'inline-block',
-  backgroundColor: '#8787d8'
+  opacity: 0
 }
 
 const transitionStyles = {
@@ -16,14 +13,14 @@ const transitionStyles = {
   entered: { opacity: 1 },
 };
 
-export const Fade = ({ in: inProp }) => (
-  <Transition in={inProp} timeout={duration}>
+export const Fade = (props) => (
+  <Transition in={props.in} timeout={duration}>
     {(state) => (
       <div style={{
         ...defaultStyle,
         ...transitionStyles[state]
       }}>
-        I'm A fade Transition!
+        {props.child}
       </div>
     )}
   </Transition>
