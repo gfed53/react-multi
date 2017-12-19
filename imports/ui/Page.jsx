@@ -36,25 +36,8 @@ export default class Page extends Component {
     
     console.log('this.props',this.props);
     console.log('this.state.lastProps',this.state.lastProps);
-    
-    //hide
-    this.setState(({ show }) => ({
-      show: !show
-    }));
 
-    //switch props
-    setTimeout(()=> {
-      this.setState({
-        lastProps: nextProps
-      });
-    }, 150);
-
-    //reveal
-    setTimeout(()=> {
-      this.setState(({ show }) => ({
-        show: !show
-      }));
-    }, 300);
+    this.handleToggle(nextProps);
     
   }
 
@@ -63,7 +46,7 @@ export default class Page extends Component {
   }
 
   //
-  handleToggle() {
+  handleToggle(nextProps) {
     //hide
     this.setState(({ show }) => ({
       show: !show
@@ -74,14 +57,14 @@ export default class Page extends Component {
       this.setState({
         lastProps: nextProps
       });
-    }, 150);
+    }, 125);
 
     //reveal
     setTimeout(()=> {
       this.setState(({ show }) => ({
         show: !show
       }));
-    }, 300);
+    }, 200);
   }
 
   renderData(data, platform){
