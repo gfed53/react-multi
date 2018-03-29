@@ -10,6 +10,7 @@ const linkifyPlugin = createLinkifyPlugin({
 
 // testing
 import Text from './Text';
+import EditorOutput from './EditorOutput';
 
 export default class MyEditor extends Component {
 
@@ -17,7 +18,8 @@ export default class MyEditor extends Component {
     super(props);
     this.state = {
       editorState: EditorState.createEmpty(),
-      readOnly: false
+      readOnly: false,
+      showingOutput: false
     };
 
     this.onChange = (editorState) => {
@@ -32,6 +34,7 @@ export default class MyEditor extends Component {
 
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.onReadToggleClick = this._onReadToggleClick.bind(this);
+    this.onRevealOutput = this._onRevealOutput.bind(this);
   }
 
   handleKeyCommand(command, editorState) {
@@ -65,15 +68,31 @@ export default class MyEditor extends Component {
 
   }
 
+  _onRevealOutput() {
+    this.setState({
+      showingOutput: true
+    });
+  }
+
 
 
   render() {
+    const output = this.state.showingOutput ? 
+    (
+      <div>
+        <h3>HTML output</h3>
+        <EditorOutput data={this.state.editorState} />
+        <button>Edit</button>
+      </div>
+
+    ) : null;
+
     return (
       <div>
         <button onClick={this._onBoldClick.bind(this)}>Bold</button>
         <button onClick={this._onTestClick.bind(this)}>Test</button>
         <button onClick={this.logState}>Log State</button>
-        <button onClick={this.onReadToggleClick}>Toggle Read</button>
+        <button onClick={this.onRevealOutput}>Save</button>
         <Editor 
           editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}
@@ -81,8 +100,9 @@ export default class MyEditor extends Component {
           plugins={[linkifyPlugin]}
           readOnly={this.state.readOnly}
         />
-        <h3>HTML output</h3>
-        <Text data={this.state.editorState} />
+        {output}
+        
+        
       </div>
     );
   }
